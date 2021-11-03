@@ -1,0 +1,11 @@
+.card-cart-icon{
+    position: relative;
+    left:-40%;
+    transition: .3s ease-in;
+}
+.card-btn:hover .card-cart-icon{
+    left: 0;
+}
+input{
+    outline: 0;
+}
