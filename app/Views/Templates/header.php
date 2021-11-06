@@ -15,19 +15,19 @@
     <nav class="absolute w-full z-10">
         <div class="nav-container px-8 py-2 flex flex-row items-center justify-between bg-black text-white">
             <div class="nav-brand m-1">
-                <a href="/" class="text-3xl font-bold">The Attire <sup class="text-sm"><small>TM</small></sup></a>
+                <a href="/" class="text-3xl font-bold">The Cobbler <sup class="text-sm"><small>TM</small></sup></a>
             </div>
             <div class="nav-link nav-link-men">
-                <a href="/Men" class="text-lg font-semibold">Men</a>
+                <a href="/Men" class="text-lg font-semibold">Sneakers</a>
             </div>
             <div class="nav-link nav-link-women">
-                <a href="/Women" class="text-lg font-semibold">Women</a>
+                <a href="/Women" class="text-lg font-semibold">T-shirts</a>
             </div>
             <div class="nav-link nav-link-children">
-                <a href="/Children" class="text-lg font-semibold">Children</a>
+                <a href="/Children" class="text-lg font-semibold">Art</a>
             </div>
             <div class="nav-link nav-link-pets">
-                <a href="/Pets" class="text-lg font-semibold">Pets</a>
+                <a href="/Pets" class="text-lg font-semibold">Customize</a>
             </div>
             <div class="nav-link">
                 <a href="/AboutUs" class="text-lg font-semibold">About Us</a>

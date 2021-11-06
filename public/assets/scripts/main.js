@@ -1,4 +1,33 @@
 $(document).ready(function(){
+    if($(".favourite-hollow")){
+        $(".favourite-hollow").click(function (){
+            $(".favourite-hollow").hide(200);
+            $(".favourite-solid").show(200);
+        });
+        $(".favourite-solid").click(function (){
+            $(".favourite-solid").hide(200);
+            $(".favourite-hollow").show(200);
+        });
+    }
+    if($(".main-img")){
+        otherImgs = document.querySelectorAll(".other-image");
+        otherImgs.forEach(function (item){
+            $(item).mouseenter(function (){
+                var mainImg = $(".product-image");
+                var mainImgSrc = $(mainImg).attr("src");
+                var imgSrc = $(item).attr("src");
+                $(item).attr("src",""+mainImgSrc);
+                $(mainImg).attr("src",""+imgSrc);
+            });
+            $(item).mouseleave(function (){
+                var mainImg = $(".product-image");
+                var mainImgSrc = $(mainImg).attr("src");
+                var imgSrc = $(item).attr("src");
+                $(item).attr("src",""+mainImgSrc);
+                $(mainImg).attr("src",""+imgSrc);
+            });
+        });
+    }
     if($(".registerSwitch")){
         $(".registerSwitch").click(function(){
             $(".login-form").hide();

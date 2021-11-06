@@ -16,6 +16,14 @@
                         Invalid password.
                     </small>
                 </div>
+                <div class="remember ml-2 p-2">
+                    <div>
+                        <input type="checkbox" name="remember" id="remember">
+                        <small class="">
+                            Remember me.
+                        </small>
+                    </div>
+                </div>
                 <div class="flex justify-center">
                     <button class="w-11/12 bg-red-700 text-white p-2 m-2 rounded" type="button" name="loginBtn" id="loginBtn">
                         Login
