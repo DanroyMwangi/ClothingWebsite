@@ -2,14 +2,12 @@
 
 namespace App\Controllers;
 
-use App\Models\UserModel;
+use Controller;
 
 class Test extends BaseController
 {
 	public function index()
 	{
-        $users = new UserModel();
-    
-		echo view('test',['users'=>$users->getUsers(),'title'=>'Test','customer'=>($users->getWhere(['fname'=>'Danroy'])->getResult())]);
-	}
+        print_r($this->session()->all_userdata());
+    }
 }

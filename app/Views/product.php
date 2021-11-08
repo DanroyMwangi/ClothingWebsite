@@ -32,11 +32,18 @@
                         </div>
                         <div class="flex flex-row items-center">
                             <span class="mx-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 text-red-500 favourite-hollow transition ease-in" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                     class="w-8 text-red-500 favourite-hollow transition ease-in" fill="none"
+                                     viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
                                 </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 text-red-500 favourite-solid hidden transition ease-in" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                     class="w-8 text-red-500 favourite-solid hidden transition ease-in"
+                                     viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                          d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                                          clip-rule="evenodd"/>
                                 </svg>
                             </span>
                             <span class="mx-2">
@@ -82,7 +89,9 @@
                         </div>
                         <div class="more-details my-4">
                             <small>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet asperiores aut consectetur corporis cupiditate deserunt, dolor eveniet facilis hic impedit ipsam molestiae necessitatibus officia omnis quae similique sit sunt.
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet asperiores aut
+                                consectetur corporis cupiditate deserunt, dolor eveniet facilis hic impedit ipsam
+                                molestiae necessitatibus officia omnis quae similique sit sunt.
                             </small>
                         </div>
                         <div class="personal-details w-full">
@@ -135,13 +144,17 @@
                             <form action="">
                                 <div class="my-2 flex flex-col justify-between relative">
                                     <div>
-                                        <input type="number" name="quantity" id="quantity" placeholder="Quantity" min="1" class="p-2 rounded outline-none border-2 border-gray-200">
+                                        <input type="number" name="quantity" id="quantity" placeholder="Quantity"
+                                               min="1" class="p-2 rounded outline-none border-2 border-gray-200">
                                     </div>
                                     <div class="buy-btn flex items-center text-center w-1/2 relative bottom-0">
                                         <button class="bg-green-600 hover:bg-green-500 transition duration-200 text-white w-full mt-2 mx-auto p-2 rounded text-2xl flex flex-row items-center justify-center card-btn relative overflow-hidden">
                                             <div class="card-cart-icon relative">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-8" fill="none"
+                                                     viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                          stroke-width="2"
+                                                          d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
                                                 </svg>
                                             </div>
                                             <div class="card-cart-text">
@@ -165,7 +178,8 @@
                 </h2>
             </div>
             <div class="recommendations-body overflow-x-auto h-90 flex flex-row">
-                <div class="card w-60 border border-2 rounded flex flex-col m-4 shadow-lg transition duration-1000 hover:shadow-xl select-none" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+                <div class="card w-60 border border-2 rounded flex flex-col m-4 shadow-lg transition duration-1000 hover:shadow-xl select-none"
+                     style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
                     <div class="card-image w-full">
                         <img src="media/images/shoe.jpg" class="w-full" alt="">
                     </div>
@@ -221,8 +235,10 @@
                         <div class="buy-btn flex items-center text-center w-full">
                             <button class="bg-green-600 hover:bg-green-500 transition duration-200 text-white w-full mt-2 mx-auto p-1 rounded text-xl flex flex-row items-center justify-center card-btn relative overflow-hidden">
                                 <div class="card-cart-icon relative">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6" fill="none" viewBox="0 0 24 24"
+                                         stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
                                     </svg>
                                 </div>
                                 <div class="card-cart-text">
@@ -234,7 +250,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="card w-60 border border-2 rounded flex flex-col m-4 shadow-lg transition duration-1000 hover:shadow-xl select-none" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+                <div class="card w-60 border border-2 rounded flex flex-col m-4 shadow-lg transition duration-1000 hover:shadow-xl select-none"
+                     style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
                     <div class="card-image w-full">
                         <img src="media/images/shoe.jpg" class="w-full" alt="">
                     </div>
@@ -290,8 +307,10 @@
                         <div class="buy-btn flex items-center text-center w-full">
                             <button class="bg-green-600 hover:bg-green-500 transition duration-200 text-white w-full mt-2 mx-auto p-1 rounded text-xl flex flex-row items-center justify-center card-btn relative overflow-hidden">
                                 <div class="card-cart-icon relative">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6" fill="none" viewBox="0 0 24 24"
+                                         stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
                                     </svg>
                                 </div>
                                 <div class="card-cart-text">
@@ -303,7 +322,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="card w-60 border border-2 rounded flex flex-col m-4 shadow-lg transition duration-1000 hover:shadow-xl select-none" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+                <div class="card w-60 border border-2 rounded flex flex-col m-4 shadow-lg transition duration-1000 hover:shadow-xl select-none"
+                     style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
                     <div class="card-image w-full">
                         <img src="media/images/shoe.jpg" class="w-full" alt="">
                     </div>
@@ -359,8 +379,10 @@
                         <div class="buy-btn flex items-center text-center w-full">
                             <button class="bg-green-600 hover:bg-green-500 transition duration-200 text-white w-full mt-2 mx-auto p-1 rounded text-xl flex flex-row items-center justify-center card-btn relative overflow-hidden">
                                 <div class="card-cart-icon relative">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6" fill="none" viewBox="0 0 24 24"
+                                         stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
                                     </svg>
                                 </div>
                                 <div class="card-cart-text">
@@ -372,7 +394,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="card w-60 border border-2 rounded flex flex-col m-4 shadow-lg transition duration-1000 hover:shadow-xl select-none" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+                <div class="card w-60 border border-2 rounded flex flex-col m-4 shadow-lg transition duration-1000 hover:shadow-xl select-none"
+                     style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
                     <div class="card-image w-full">
                         <img src="media/images/shoe.jpg" class="w-full" alt="">
                     </div>
@@ -428,8 +451,10 @@
                         <div class="buy-btn flex items-center text-center w-full">
                             <button class="bg-green-600 hover:bg-green-500 transition duration-200 text-white w-full mt-2 mx-auto p-1 rounded text-xl flex flex-row items-center justify-center card-btn relative overflow-hidden">
                                 <div class="card-cart-icon relative">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6" fill="none" viewBox="0 0 24 24"
+                                         stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
                                     </svg>
                                 </div>
                                 <div class="card-cart-text">
@@ -441,7 +466,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="card w-60 border border-2 rounded flex flex-col m-4 shadow-lg transition duration-1000 hover:shadow-xl select-none" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+                <div class="card w-60 border border-2 rounded flex flex-col m-4 shadow-lg transition duration-1000 hover:shadow-xl select-none"
+                     style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
                     <div class="card-image w-full">
                         <img src="media/images/shoe.jpg" class="w-full" alt="">
                     </div>
@@ -497,8 +523,10 @@
                         <div class="buy-btn flex items-center text-center w-full">
                             <button class="bg-green-600 hover:bg-green-500 transition duration-200 text-white w-full mt-2 mx-auto p-1 rounded text-xl flex flex-row items-center justify-center card-btn relative overflow-hidden">
                                 <div class="card-cart-icon relative">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6" fill="none" viewBox="0 0 24 24"
+                                         stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
                                     </svg>
                                 </div>
                                 <div class="card-cart-text">
@@ -521,7 +549,9 @@
                 </div>
                 <div>
                     <small>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consectetur ducimus error est, illum inventore iusto nihil nisi odit possimus ratione tempora. Aliquam culpa eveniet facere iusto reprehenderit sed ut.
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consectetur ducimus error
+                        est, illum inventore iusto nihil nisi odit possimus ratione tempora. Aliquam culpa eveniet
+                        facere iusto reprehenderit sed ut.
                     </small>
                 </div>
             </div>
@@ -559,7 +589,9 @@
                     </div>
                     <div>
                         <p class="text-sm">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur cum deserunt est illum necessitatibus nisi repudiandae sapiente tenetur? Hic id ipsa ipsam necessitatibus quo? Beatae dolore doloremque ea libero quibusdam!
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur cum deserunt est illum
+                            necessitatibus nisi repudiandae sapiente tenetur? Hic id ipsa ipsam necessitatibus quo?
+                            Beatae dolore doloremque ea libero quibusdam!
                         </p>
                     </div>
                 </div>
@@ -596,7 +628,9 @@
                     </div>
                     <div>
                         <p class="text-sm">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur cum deserunt est illum necessitatibus nisi repudiandae sapiente tenetur? Hic id ipsa ipsam necessitatibus quo? Beatae dolore doloremque ea libero quibusdam!
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur cum deserunt est illum
+                            necessitatibus nisi repudiandae sapiente tenetur? Hic id ipsa ipsam necessitatibus quo?
+                            Beatae dolore doloremque ea libero quibusdam!
                         </p>
                     </div>
                 </div>
@@ -633,7 +667,9 @@
                     </div>
                     <div>
                         <p class="text-sm">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur cum deserunt est illum necessitatibus nisi repudiandae sapiente tenetur? Hic id ipsa ipsam necessitatibus quo? Beatae dolore doloremque ea libero quibusdam!
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur cum deserunt est illum
+                            necessitatibus nisi repudiandae sapiente tenetur? Hic id ipsa ipsam necessitatibus quo?
+                            Beatae dolore doloremque ea libero quibusdam!
                         </p>
                     </div>
                 </div>
