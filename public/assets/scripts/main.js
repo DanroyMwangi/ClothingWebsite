@@ -41,6 +41,11 @@ $(document).ready(function () {
         });
     }
     if ($(".login-form")) {
+        /*let userIp = "";
+        $.getJSON("https://ipinfo.io/json",
+            function(data){
+                userIp = data;
+        });*/
         var uname_is_valid = false, password_is_valid = false;
         $("#loginUname").keyup(function () {
             if (validateEmail($("#loginUname"), $("#unameError"))) {
@@ -53,11 +58,16 @@ $(document).ready(function () {
             }
         });
         $("#loginBtn").click(function () {
+            $(".login-load-spinner").show();
+            $(".login-btn-text").hide();
             if (uname_is_valid == true && password_is_valid == true) {
                 //$(".login-form").submit();
-                ajaxCheck();
+                ajaxCheck(/*userIp*/);
             } else {
-                alert("Not valid");
+                $(".login-load-spinner").hide();
+                $(".login-btn-text").show();
+                $(".login-error-alert").html("Fill all the values");
+                showAlert($(".login-error-alert"));
             }
         });
     }
@@ -118,59 +128,20 @@ $(document).ready(function () {
             }
         });
         $("#regBtn").click(function (e) {
+            $(".reg-load-spinner").show();
+            $(".reg-btn-text").hide();
             e.preventDefault();
             if (fname_is_valid == true && lname_is_valid == true && address_is_valid == true && email_is_valid == true && password_is_valid == true) {
                 ajaxSubmit();
             } else {
-                showAlert($(".fill-all-error-alert"));
+                $(".reg-load-spinner").hide();
+                $(".reg-btn-text").show();
+                $(".reg-error-alert").html("Fill in all the fields");
+                showAlert($(".reg-error-alert"));
             }
         });
     }
 });
-
-function showAlert(alertArea) {
-    alertArea.show("slow");
-    setTimeout(function () {
-        alertArea.hide("slow");
-    }, 3000);
-}
-
-function validateText(inputText, errorArea) {
-    value = inputText.val()
-    if (value.length <= 3 || value.length >= 14) {
-        //errorArea.html("Invalid "+ inputText.title +".");
-        errorArea.removeClass("hidden");
-        inputText.addClass("border-red-700");
-        inputText.removeClass("border-green-500");
-        return false;
-    } else {
-        errorArea.hide();
-        inputText.removeClass("border-red-700");
-        inputText.addClass("border-green-500");
-        return true;
-    }
-}
-
-function validateEmail(email, errorArea) {
-    if (email.val().length <= 6) {
-        email.addClass("border-red-700");
-        email.removeClass("border-green-500");
-    } else {
-        var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-        var is_valid = emailReg.test(email.val());
-        if (is_valid) {
-            errorArea.addClass("hidden");
-            email.removeClass("border-red-700");
-            email.addClass("border-green-500");
-            return true;
-        } else {
-            errorArea.removeClass("hidden");
-            email.addClass("border-red-700");
-            email.removeClass("border-green-500");
-            return false;
-        }
-    }
-}
 
 function ajaxSubmit() {
     $.ajax({
@@ -185,33 +156,38 @@ function ajaxSubmit() {
             gender: $("#gender").val()
         },
         success: function () {
-            showAlert($(".success-alert"));
+            window.location.href = "/";
+            //showAlert($(".reg-success-alert"));
         },
         error: function (xhr) {
+            $(".reg-load-spinner").hide();
+            $(".reg-btn-text").show();
             const message = (JSON.parse(xhr.responseText))["message"];
             if (message.indexOf("Duplicate entry") >= 0) {
-                $(".error-alert").html("Email is already in use.");
-                showAlert($(".error-alert"));
+                $(".reg-error-alert").html("Email is already in use.");
+                showAlert($(".reg-error-alert"));
             } else {
-                showAlert($(".error-alert"));
+                $(".reg-error-alert").html("An error has occurred, please contact the administrator.");
+                showAlert($(".reg-error-alert"));
             }
         }
     });
 }
 
-function ajaxCheck() {
+function ajaxCheck(/*userIp*/) {
     $.ajax({
         type: 'post',
         url: 'auth/checkDb/',
         data: {
             password: $("#loginPass").val(),
-            uname: $("#loginUname").val()
+            uname: $("#loginUname").val(),
+            //userAddress: userIp
         },
         success: function (xhr) {
             var message = (xhr);
             console.log(message);
             if (message === "udne") {
-                $(".login-error-alert").html("No user.");
+                $(".login-error-alert").html("User does not exist.");
                 showAlert($(".login-error-alert"));
             } else if (message === "pdnm") {
                 $(".login-error-alert").html("Check the credentials you entered.");
@@ -221,7 +197,10 @@ function ajaxCheck() {
             }
         },
         error: function (xhr) {
-            alert("error");
+            $(".login-load-spinner").hide();
+            $(".login-btn-text").show();
+            $(".login-error-alert").html("An error has occurred, please contact the administrator.");
+            showAlert($(".login-error-alert"));
             const message = (JSON.parse(xhr.responseText))["message"];
             console.log(message);
         }

@@ -3,17 +3,16 @@
 namespace App\Controllers;
 
 use App\Libraries\Hash;
+use App\Models\UserLoginModel;
 use App\Models\UserModel;
 use Controller;
-
-$this->load->library('session');
 
 class Auth extends BaseController
 {
     public function index()
     {
         echo view('Templates/header', ['title' => "Login/Register"]);
-        echo view('login');
+        echo view('auth');
         echo view('Templates/footer');
     }
 
@@ -37,21 +36,32 @@ class Auth extends BaseController
             "roleId" => $role,
             "gender" => $gender
         ];
-        $userModel = new UserModel();
+        $userModel = new UserLoginModel();
         $query = $userModel->insert($data);
 
         if (!$query) {
             echo "Failed";
-            return redirect()->back()->with("fail", "Something went wrong.");
         } else {
-            return redirect()->to("/")->with("success", "Successfully registered.");
+            $result = $userModel->where("email", $email)->first();
+            $sessionData = [
+                "userId" => $result["userId"],
+                "fname" => $result["fname"],
+                "lname" => $result["lname"],
+                'isLoggedIn' => true
+            ];
+            session()->set($sessionData);
+            echo "Success";
         }
     }
 
+    /**
+     * @throws \ReflectionException
+     */
     public function checkDb()
     {
         $uname = $this->request->getPost("uname");
         $password = $this->request->getPost("password");
+        /*$userIp = $this->request->getPost("userAddress");*/
 
         $userModel = new UserModel();
         $query = $userModel->where("email", $uname)->first();
@@ -59,6 +69,8 @@ class Auth extends BaseController
         if ($query) {
             $result = $query["password"];
             if (Hash::check($result, $password)) {
+                $userLoginModel = new UserLoginModel();
+                $userLoginModel->insert(["userId"=>$query["userId"]]);
                 $sessionData = [
                     "userId" => $query["userId"],
                     "fname" => $query["fname"],
@@ -72,5 +84,19 @@ class Auth extends BaseController
         } else {
             echo "udne";
         }
+    }
+
+    /**
+     * @throws \ReflectionException
+     */
+    public function Logout()
+    {
+        date_default_timezone_set('Africa/Nairobi');
+        $logoutTime = date('Y-m-d H:i:s', time());
+        $userLoginModel = new UserLoginModel();
+        //$currentUser =
+        $userLoginModel->update(["logoutTime"=> strval($logoutTime)],["userId"=>session()->get("userId")]);
+        session()->destroy();
+        return redirect()->to("/");
     }
 }

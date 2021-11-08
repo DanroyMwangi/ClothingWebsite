@@ -37,9 +37,21 @@
                 </div>
             </div>
             <div class="flex justify-center">
-                <button class="w-11/12 bg-red-700 text-white p-2 m-2 rounded" type="button" name="loginBtn"
+                <button class="w-11/12 bg-red-700 text-white p-2 m-2 rounded inline-flex justify-center" type="button"
+                        name="loginBtn"
                         id="loginBtn">
-                    Login
+                    <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white hidden login-load-spinner"
+                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"
+                                style="--darkreader-inline-stroke: currentColor;"
+                                data-darkreader-inline-stroke=""></circle>
+                        <path class="opacity-75" fill="currentColor"
+                              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                              style="--darkreader-inline-fill: currentColor;" data-darkreader-inline-fill=""></path>
+                    </svg>
+                    <span class="login-btn-text">
+                        Login
+                    </span>
                 </button>
             </div>
         </form>
@@ -61,17 +73,12 @@
                     Join your fellow Shoppers now, it only takes less than a minute.
                 </p>
             </div>
-            <div class="bg-red-200 text-red-800 p-4 rounded hidden fill-all-error-alert">
-                    <span>
-                        Fill in all the fields.
-                    </span>
-            </div>
-            <div class="bg-red-200 text-red-800 p-4 rounded hidden error-alert">
+            <div class="bg-red-200 text-red-800 p-4 rounded hidden reg-error-alert">
                     <span>
                         Failed to register.
                     </span>
             </div>
-            <div class="bg-green-200 text-green-800 p-4 rounded hidden success-alert">
+            <div class="bg-green-200 text-green-800 p-4 rounded hidden reg-success-alert">
                     <span>
                         Successfully registered.
                     </span>
@@ -134,9 +141,20 @@
                 </div>
                 <div class="text-center">
                     <button type="button"
-                            class="submit w-11/12 bg-red-400 text-white p-2 m-2 rounded transition cursor-not-allowed"
+                            class="submit w-11/12 bg-red-400 text-white p-2 m-2 rounded transition cursor-not-allowed inline-flex justify-center"
                             disabled name="regBtn" id="regBtn">
-                        Sign Up
+                        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white hidden reg-load-spinner"
+                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"
+                                    style="--darkreader-inline-stroke: currentColor;"
+                                    data-darkreader-inline-stroke=""></circle>
+                            <path class="opacity-75" fill="currentColor"
+                                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                                  style="--darkreader-inline-fill: currentColor;" data-darkreader-inline-fill=""></path>
+                        </svg>
+                        <span class="reg-btn-text">
+                            Sign Up
+                        </span>
                     </button>
                 </div>
             </div>
@@ -147,7 +165,6 @@
                         Already have an account?
                     </small>
                 </div>
-                
             </span>
     </div>
 </div>
