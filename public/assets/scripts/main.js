@@ -62,7 +62,7 @@ $(document).ready(function () {
             $(".login-btn-text").hide();
             if (uname_is_valid == true && password_is_valid == true) {
                 //$(".login-form").submit();
-                ajaxCheck(/*userIp*/);
+                ajaxCheck(".login-error-alert",".login-load-spinner", ".login-btn-text","#loginPass","#loginUname");
             } else {
                 $(".login-load-spinner").hide();
                 $(".login-btn-text").show();
@@ -174,33 +174,37 @@ function ajaxSubmit() {
     });
 }
 
-function ajaxCheck(/*userIp*/) {
+function ajaxCheck(alert, spinner, text, password, username) {
     $.ajax({
         type: 'post',
         url: 'auth/checkDb/',
         data: {
-            password: $("#loginPass").val(),
-            uname: $("#loginUname").val(),
+            password: $(password).val(),
+            uname: $(username).val(),
             //userAddress: userIp
         },
         success: function (xhr) {
             var message = (xhr);
             console.log(message);
             if (message === "udne") {
-                $(".login-error-alert").html("User does not exist.");
-                showAlert($(".login-error-alert"));
+                $(alert).html("User does not exist.");
+                showAlert($(alert));
+                $(spinner).hide();
+                $(text).show();
             } else if (message === "pdnm") {
-                $(".login-error-alert").html("Check the credentials you entered.");
-                showAlert($(".login-error-alert"));
+                $(alert).html("Check the credentials you entered.");
+                showAlert($(alert));
+                $(spinner).hide();
+                $(text).show();
             } else {
                 window.location.href = "/";
             }
         },
         error: function (xhr) {
-            $(".login-load-spinner").hide();
-            $(".login-btn-text").show();
-            $(".login-error-alert").html("An error has occurred, please contact the administrator.");
-            showAlert($(".login-error-alert"));
+            $(spinner).hide();
+            $(text).show();
+            $(alert).html("An error has occurred, please contact the administrator.");
+            showAlert($(alert));
             const message = (JSON.parse(xhr.responseText))["message"];
             console.log(message);
         }

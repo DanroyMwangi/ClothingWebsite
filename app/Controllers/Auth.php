@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Libraries\Hash;
 use App\Models\UserLoginModel;
-use App\Models\UserModel;
+use App\Models\CategoryModel;
 use Controller;
 
 class Auth extends BaseController
@@ -63,8 +63,8 @@ class Auth extends BaseController
         $password = $this->request->getPost("password");
         /*$userIp = $this->request->getPost("userAddress");*/
 
-        $userModel = new UserModel();
-        $query = $userModel->where("email", $uname)->first();
+        $userModel = new CategoryModel();
+        $query = $userModel->where(["email"=>$uname,"roleId"=>2])->first();
 
         if ($query) {
             $result = $query["password"];

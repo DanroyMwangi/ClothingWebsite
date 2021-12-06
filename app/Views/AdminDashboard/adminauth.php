@@ -10,11 +10,11 @@
     <title><?php echo $title; ?></title>
 </head>
 <body>
-    <div class="flex justify-center items-center align-center w-1/2 m-auto h-screen block">
-        <h1 class="text-6xl">
+    <div class="flex justify-center lg:flex-row flex-col items-center align-center w-1/2 m-auto h-screen block">
+        <h1 class="lg:text-6xl md:text-4xl sm:text-2xl">
             Welcome to the Administrator Login Panel
         </h1>
-        <form action="" class="admin-login-form p-4 w-full">
+        <form action="" class="admin-login-form p-4 w-full" id="adminLoginForm">
             <div class="bg-green-200 text-green-800 p-4 rounded hidden login-success-alert">
                 <span>
                     Successfully Logged in.
@@ -43,7 +43,7 @@
                 <button class="w-11/12 bg-red-700 text-white p-2 m-2 rounded inline-flex justify-center" type="button"
                         name="adminLoginBtn"
                         id="adminLoginBtn">
-                    <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white hidden admin-login-load-spinner"
+                    <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white hidden login-load-spinner"
                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"
                                 style="--darkreader-inline-stroke: currentColor;"
@@ -52,7 +52,7 @@
                               d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                               style="--darkreader-inline-fill: currentColor;" data-darkreader-inline-fill=""></path>
                     </svg>
-                    <span class="admin-login-btn-text">
+                    <span class="login-btn-text">
                     Login
                 </span>
                 </button>
