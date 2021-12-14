@@ -2,6 +2,9 @@
 
 namespace Config;
 
+use App\Filters\AdminAlreadyLoggedInFilter;
+use App\Filters\AdminAuthGuardFilter;
+use App\Filters\AdminAuthuthGuardFilter;
 use App\Filters\AlreadyLoggedInFilter;
 use App\Filters\AuthGuardFilter;
 use CodeIgniter\Config\BaseConfig;
@@ -22,7 +25,9 @@ class Filters extends BaseConfig
 		'toolbar'  => DebugToolbar::class,
 		'honeypot' => Honeypot::class,
         'authGuard' => AuthGuardFilter::class,
-        "alreadyLoggedIn" => AlreadyLoggedInFilter::class
+        "alreadyLoggedIn" => AlreadyLoggedInFilter::class,
+        "authAdmin" => AdminAuthGuardFilter::class,
+        "alreadyInAdmin" => AdminAlreadyLoggedInFilter::class,
 	];
 
 	/**

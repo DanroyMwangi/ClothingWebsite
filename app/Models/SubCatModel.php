@@ -8,7 +8,7 @@ class SubCatModel extends Model
 {
     protected $table = 'subcategory';
     protected $primaryKey = 'subId';
-    protected $allowedFields = ['subName', 'categoryId'];
+    protected $allowedFields = ['subName',"description" ,'categoryId'];
 
     public function getSubs(): array
     {

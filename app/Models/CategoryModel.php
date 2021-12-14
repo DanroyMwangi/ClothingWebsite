@@ -8,7 +8,7 @@ class CategoryModel extends Model
 {
     protected $table = 'category';
     protected $primaryKey = 'categoryId';
-    protected $allowedFields = ['categoryName'];
+    protected $allowedFields = ['categoryName','description'];
 
     public function getCategories(): array
     {

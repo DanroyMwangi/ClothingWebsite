@@ -36,9 +36,16 @@ $routes->get('/admin/dash', 'Admin::dash');
 $routes->group('',['filter' => 'authGuard'],function ($routes){
     $routes->get('/auth/Logout', 'Auth::Logout');
 });
+$routes->group('',['filter' => 'authAdmin'],function ($routes){
+    $routes->get('/admin/dash', 'Admin::Logout');
+});
 $routes->group('', ['filter' => 'alreadyLoggedIn'], function ($routes) {
     $routes->get('/auth', 'Auth::index');
 });
+$routes->group('', ['filter' => 'alreadyInAdmin'], function ($routes) {
+    $routes->get('/admin', 'Admin::index');
+});
+
 
 /*
  * --------------------------------------------------------------------

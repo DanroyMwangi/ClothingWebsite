@@ -62,6 +62,91 @@ $(document).ready(function () {
         });
     }
 
+    function addCategory(errorAlert,successAlert, spinner, text, catName, description) {
+        $.ajax({
+            type: 'post',
+            url: 'addCategory/',
+            data: {
+                type:"mainCat",
+                catName: $(catName).val(),
+                description: $(description).val()
+            },
+            success: function (xhr) {
+                $(spinner).hide();
+                $(text).show();
+                var message = (xhr);
+                console.log(message);
+                $(successAlert).html("Successfully worked.");
+                showAlert($(successAlert));
+            },
+            error: function (xhr) {
+                $(spinner).hide();
+                $(text).show();
+                $(errorAlert).html("An error has occurred, please contact the administrator.");
+                showAlert($(errorAlert));
+                const message = (JSON.parse(xhr.responseText))["message"];
+                console.log(message);
+            }
+        });
+    }
+    if($(".categories")){
+        $(".addCategoryBtn").click(function (){
+            $(".cat-load-spinner").show();
+            $(".cat-btn-text").hide();
+            if (!($("#categoryName").val()==="") && !($("#categoryDescription").val()==="")) {
+                //showAlert($(".cat-success-alert"));
+                addCategory(".cat-error-alert",".cat-success-alert",".cat-load-spinner",".cat-btn-text","#categoryName","#categoryDescription");
+            } else {
+                $(".cat-load-spinner").hide();
+                $(".cat-btn-text").show();
+                //showAlert($(".cat-error-alert"));
+            }
+        });
+    }
+    function addSubCategory(errorAlert,successAlert, spinner, text, subName,allCategories, description) {
+        $.ajax({
+            type: 'post',
+            url: 'addCategory/',
+            data: {
+                type:"sub",
+                subName: $(subName).val(),
+                allCategories: $(allCategories).val(),
+                subDescription: $(description).val()
+            },
+            success: function (xhr) {
+                $(spinner).hide();
+                $(text).show();
+                var message = (xhr);
+                console.log(message);
+                $(successAlert).html("Successfully worked.");
+                showAlert($(successAlert));
+            },
+            error: function (xhr) {
+                $(spinner).hide();
+                $(text).show();
+                $(errorAlert).html("An error has occurred, please contact the administrator.");
+                showAlert($(errorAlert));
+                const message = (JSON.parse(xhr.responseText))["message"];
+                console.log(message);
+            }
+        });
+    }
+    if($(".subCategories")){
+        $(".addSubBtn").click(function (){
+            $(".sub-load-spinner").show();
+            $(".sub-btn-text").hide();
+            if (!($("#subName").val()==="") && !($("#subDescription").val()==="")) {
+                //showAlert($(".cat-success-alert"));
+                $(".sub-load-spinner").hide();
+                $(".sub-btn-text").show();
+                addSubCategory(".sub-error-alert",".sub-success-alert",".sub-load-spinner",".sub-btn-text","#subName","#allCategories","#subDescription");
+            } else {
+                $(".sub-load-spinner").hide();
+                $(".sub-btn-text").show();
+                //showAlert($(".cat-error-alert"));
+            }
+        });
+    }
     if($(".admin-tool")){
         const adminTools = document.querySelectorAll(".admin-tool");
         const adminContent = document.querySelectorAll(".content-area");

@@ -31,7 +31,7 @@
             </div>
             <div class="tool-name w-auto m-2">
                 <div>
-                    <h2 class="text-xl text-center lg:text-xl text-lg">
+                    <h2 class="text-xl text-center text-xs md:text-xl">
                         Home
                     </h2>
                 </div>
@@ -48,7 +48,7 @@
             </div>
             <div class="tool-name w-auto m-2">
                 <div>
-                    <h2 class="text-xl text-center lg:text-xl text-lg">
+                    <h2 class="text-xl text-center md:text-xl text-xs">
                         Orders
                     </h2>
                 </div>
@@ -64,7 +64,7 @@
             </div>
             <div class="tool-name w-auto m-2">
                 <div>
-                    <h2 class="text-xl text-center lg:text-xl text-lg">
+                    <h2 class="text-xl text-center lg:text-xl text-xs">
                         Categories
                     </h2>
                 </div>
@@ -80,7 +80,7 @@
             </div>
             <div class="tool-name w-auto m-2">
                 <div>
-                    <h2 class="text-xl text-center lg:text-xl text-lg">
+                    <h2 class="text-xl text-center lg:text-xl text-xs">
                         Add Products
                     </h2>
                 </div>
@@ -96,7 +96,7 @@
             </div>
             <div class="tool-name w-auto m-2">
                 <div>
-                    <h2 class="text-xl text-center lg:text-xl text-lg">
+                    <h2 class="text-xl text-center lg:text-xl text-xs">
                         View Products
                     </h2>
                 </div>
@@ -204,7 +204,7 @@
             </div>
             <div class="tool-name w-auto m-2">
                 <div>
-                    <h2 class="text-xl text-center lg:text-xl text-lg">
+                    <h2 class="text-xl text-center lg:text-xl text-xs">
                         Customers
                     </h2>
                 </div>
@@ -220,7 +220,7 @@
             </div>
             <div class="tool-name w-auto m-2">
                 <div>
-                    <h2 class="text-xl text-center lg:text-xl text-lg">
+                    <h2 class="text-xl text-center lg:text-xl text-xs">
                         Delivery Guys
                     </h2>
                 </div>
@@ -238,7 +238,7 @@
             </div>
             <div class="tool-name w-auto m-2">
                 <div>
-                    <h2 class="text-xl text-center lg:text-xl text-lg">
+                    <h2 class="text-xl text-center lg:text-xl text-xs">
                         Promo codes
                     </h2>
                 </div>
@@ -254,7 +254,7 @@
             </div>
             <div class="tool-name w-auto m-2">
                 <div>
-                    <h2 class="text-xl text-center lg:text-xl text-lg">
+                    <h2 class="text-xl text-center lg:text-xl text-xs">
                         Earnings
                     </h2>
                 </div>
@@ -317,7 +317,7 @@
             </div>
             <div class="tool-name w-auto m-2">
                 <div>
-                    <h2 class="text-xl text-center lg:text-xl text-lg">
+                    <h2 class="text-xl text-center lg:text-xl text-xs">
                         Reviews
                     </h2>
                 </div>
@@ -335,7 +335,7 @@
             </div>
             <div class="tool-name w-auto m-2">
                 <div>
-                    <h2 class="text-xl text-center lg:text-xl text-lg">
+                    <h2 class="text-xl text-center lg:text-xl text-xs">
                         Settings
                     </h2>
                 </div>
@@ -345,7 +345,7 @@
         <div class="flex-row w-full">
             <div class="tool-icon items-center justify-center flex-row w-1/3 m-2">
                 <div>
-                    <a href="logout.php">
+                    <a href="<?php echo"admin/logout"?>">
                         <svg version="1.1" id="Capa_1" class="w-4 md:w-10 widget-rotate" xmlns="http://www.w3.org/2000/svg"
                              xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 384.971 384.971" style="enable-background:new 0 0 384.971 384.971;" xml:space="preserve">
                                         <g id="Sign_Out">
@@ -362,8 +362,8 @@
             </div>
             <div class="tool-name w-auto m-2">
                 <div>
-                    <a href="logout.php">
-                        <h2 class="text-xl text-center lg:text-xl text-sm">
+                    <a href="<?php echo"admin/logout"?>">
+                        <h2 class="text-xl text-center lg:text-xl text-xs">
                             Logout
                         </h2>
                     </a>
@@ -474,7 +474,7 @@
                 </div>
             </div>
         </div>
-        <div class="content-area flex flex-col mx-10 justify-between hidden">
+        <div class="content-area flex flex-col mx-10 justify-between hidden categories">
             <div class="p-4 w-full">
                 <div class="bg-gray-300 text-black w-full p-4 text-center">
                     <h1 class="text-2xl">
@@ -496,19 +496,21 @@
                                             Name
                                         </th>
                                         <th>
-                                            id
+                                            Description
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                <?php foreach($categories as $category): ?>
                                     <tr class="text-center">
                                         <td>
-                                            sth
+                                            <?php echo $category["categoryName"]?>
                                         </td>
                                         <td>
-                                            sth
+                                            <?php echo $category["description"]?>
                                         </td>
                                     </tr>
+                                <?php endforeach;?>
                                 </tbody>
                             </table>
                         </div>
@@ -520,7 +522,18 @@
                             </h2>
                         </div>
                         <div>
+                            <div class="w-full cat-error-alert bg-red-200 text-red-800 p-4 my-2 rounded hidden">
+                                <span>
+                                    An error has occurred.
+                                </span>
+                            </div>
+                            <div class="w-full cat-success-alert bg-green-200 text-green-800 p-4 my-2 rounded hidden">
+                                <span>
+                                    Successfully added.
+                                </span>
+                            </div>
                             <form action="" method="post" class="flex flex-col justify-between">
+                                <input type="hidden" name="type" value="mainCat">
                                 <div class="form-group my-2">
                                     <label for="categoryName" class="text-lg my-2">
                                         Name
@@ -533,11 +546,23 @@
                                         Description
                                     </label>
                                     <textarea name="categoryDescription" id="categoryDescription" style="resize:none;"
-                                              class="w-11/12 rounded"></textarea>
+                                              class="w-11/12 rounded p-2"></textarea>
                                 </div>
                                 <div class="form-group my-2 flex justify-center">
-                                    <button class="w-1/2 rounded p-2 text-xl bg-red-700 text-white">
-                                        Add Category
+                                    <button class="w-1/2 rounded p-2 text-xl bg-red-700 text-white addCategoryBtn inline-flex
+                                    justify-center" type="button" >
+                                        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white hidden cat-load-spinner text-center justify-center"
+                                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"
+                                                    style="--darkreader-inline-stroke: currentColor;"
+                                                    data-darkreader-inline-stroke=""></circle>
+                                            <path class="opacity-75" fill="currentColor"
+                                                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                                                  style="--darkreader-inline-fill: currentColor;" data-darkreader-inline-fill=""></path>
+                                        </svg>
+                                        <span class="cat-btn-text">
+                                            Add Category
+                                        </span>
                                     </button>
                                 </div>
                             </form>
@@ -555,7 +580,7 @@
                     <div class="bg-gray-200 shadow-lg w-1/2 m-4 flex-col flex">
                         <div class="m-2 w-full">
                             <h2 class="text-xl text-center">
-                                Categories
+                                Sub-Categories
                             </h2>
                         </div>
                         <div class="m-2 w-full">
@@ -566,18 +591,28 @@
                                         Name
                                     </th>
                                     <th>
-                                        id
+                                        Category
+                                    </th>
+                                    <th>
+                                        Description
                                     </th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr class="text-center">
+                                    <?php foreach($subs as $sub): ?>
+                                <tr class="text-center">
                                     <td>
-                                        sth
+                                        <?php echo $sub["subName"]?>
                                     </td>
                                     <td>
-                                        sth
+                                        <?php echo $sub["categoryId"]?>
                                     </td>
+                                    <td>
+                                        <?php echo $sub["description"]?>
+                                    </td>
+                                </tr>
+                                <?php endforeach;?>
                                 </tr>
                                 </tbody>
                             </table>
@@ -586,16 +621,27 @@
                     <div class="bg-gray-200 shadow-lg w-1/2 m-4 p-4">
                         <div>
                             <h2 class="text-xl text-center">
-                                Add New Sub Category
+                                Add New Sub-Category
                             </h2>
                         </div>
                         <div>
+                            <div class="w-full sub-error-alert bg-red-200 text-red-800 p-4 my-2 rounded hidden">
+                                <span>
+                                    An error has occurred.
+                                </span>
+                            </div>
+                            <div class="w-full sub-success-alert bg-green-200 text-green-800 p-4 my-2 rounded hidden">
+                                <span>
+                                    Successfully added.
+                                </span>
+                            </div>
                             <form action="" method="post" class="flex flex-col justify-between">
+                                <input type="hidden" name="type" value="sub">
                                 <div class="form-group my-2">
-                                    <label for="categoryName" class="text-lg my-2">
+                                    <label for="subName" class="text-lg my-2">
                                         Name
                                     </label>
-                                    <input type="text" id="categoryName" name="categoryName" class="shadow-inner w-11/12 p-2 rounded"
+                                    <input type="text" id="subName" name="subName" class="shadow-inner w-11/12 p-2 rounded"
                                            placeholder="Category Name">
                                 </div>
                                 <div class="form-group my-2 flex flex-col">
@@ -603,21 +649,34 @@
                                         Category
                                     </label>
                                     <select name="allCategories" id="allCategories" class="p-2 rounded w-11/12 bg-white">
-                                        <option value="">SubCat1</option>
-                                        <option value="">SubCat2</option>
-                                        <option value="">SubCat3</option>
+                                        <?php foreach($categories as $category): ?>
+                                            <option value="<?php echo $category["categoryName"]?>"><?php echo $category["categoryName"]?></option>
+                                        <?php endforeach;?>
                                     </select>
                                 </div>
                                 <div class="form-group my-2">
-                                    <label for="categoryDescription" class="text-lg my-2">
+                                    <label for="subDescription" class="text-lg my-2">
                                         Description
                                     </label>
-                                    <textarea name="categoryDescription" id="categoryDescription" style="resize:none;"
-                                              class="w-11/12 rounded"></textarea>
+                                    <textarea name="subDescription" id="subDescription" style="resize:none;"
+                                              class="w-11/12 rounded p-2"></textarea>
                                 </div>
                                 <div class="form-group my-2 flex justify-center">
-                                    <button class="w-1/2 rounded p-2 text-xl bg-red-700 text-white">
-                                        Add Sub Category
+                                    <button class="w-1/2 rounded p-2 text-xl bg-red-700 text-white addSubBtn  inline-flex
+                                    justify-center" type="button">
+                                        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white hidden sub-load-spinner text-center
+                                        justify-center"
+                                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"
+                                                    style="--darkreader-inline-stroke: currentColor;"
+                                                    data-darkreader-inline-stroke=""></circle>
+                                            <path class="opacity-75" fill="currentColor"
+                                                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                                                  style="--darkreader-inline-fill: currentColor;" data-darkreader-inline-fill=""></path>
+                                        </svg>
+                                        <span class="sub-btn-text">
+                                            Add Sub-Category
+                                        </span>
                                     </button>
                                 </div>
                             </form>
