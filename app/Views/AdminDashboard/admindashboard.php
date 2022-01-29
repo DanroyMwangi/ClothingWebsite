@@ -694,11 +694,19 @@
                 </div>
                 <div class="bg-des-1 text-black w-full p-6 flex flex-col flex-wrap justify-between">
                     <div class="m-2 w-full">
+                        <div class="alert-messages">
+                            <div class="bg-green-200 text-green-700 p-4 text-xl rounded hidden prod-success-alert">
+                                Product successfully added.
+                            </div>
+                            <div class="bg-red-200 text-red-700 p-4 text-xl rounded hidden prod-error-alert">
+                                Adding product failed.
+                            </div>
+                        </div>
                         <h2 class="text-3xl text-center">
                             Add Product
                         </h2>
                         <div class="add-form">
-                            <form action="" method="post" enctype="multipart/form-data">
+                            <form action="" method="post" enctype="multipart/form-data" id="addProductForm">
                                 <div class="flex flex-row">
                                     <div class="form-group mx-2 flex flex-col h-full w-1/2">
                                         <div class="w-full h-5/6 p-2">
@@ -726,38 +734,27 @@
                                                 <input type="text" id="productName" name="productName" class="w-96 p-2 rounded border focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Product Name" required>
                                             </div>
                                         </div>
-                                        <div class="my-2 flex flex-row">
-                                            <div class="flex flex-row mx-2">
-                                                <div class="flex items-center mx-2">
-                                                    <input type="checkbox" name="productCategory[]" value="cat1" id="cat1" checked>
-                                                </div>
-                                                <div>
-                                                    <label for="cat1">Category 1</label>
-                                                </div>
-                                            </div>
-                                            <div class="flex flex-row mx-2">
-                                                <div class="flex items-center mx-2">
-                                                    <input type="checkbox" name="productCategory[]" value="cat2" id="cat2" checked>
-                                                </div>
-                                                <div>
-                                                    <label for="cat1">Category 2</label>
-                                                </div>
-                                            </div>
-                                            <div class="flex flex-row mx-2">
-                                                <div class="flex items-center mx-2">
-                                                    <input type="checkbox" name="productCategory[]" value="cat3" id="cat3" checked>
-                                                </div>
-                                                <div>
-                                                    <label for="cat1">Category 3</label>
-                                                </div>
-                                            </div>
-                                            <div class="flex flex-row mx-2">
-                                                <div class="flex items-center mx-2">
-                                                    <input type="checkbox" name="productCategory[]" value="cat4" id="cat4" checked>
-                                                </div>
-                                                <div>
-                                                    <label for="cat1">Category 4</label>
-                                                </div>
+                                        <div class="flex flex-col">
+                                            <h2 class="my-2 text-lg">
+                                                Sub-Categories
+                                            </h2>
+                                            <div class="my-2 flex flex-row">
+                                                <?php foreach($subs as $sub): ?>
+                                                    <?php if($sub["isDeleted"] == 0):?>
+                                                        <div class="flex flex-row mx-2">
+                                                            <div class="flex items-center mx-2">
+                                                                <input type="checkbox" name="productSub[]" class="productSub" value="<?php
+                                                                echo
+                                                                $sub["subName"]?>"
+                                                                       id="<?php echo "sub".$sub["categoryId"]?>">
+                                                            </div>
+                                                            <div>
+                                                                <label for="<?php echo "sub".$sub["categoryId"]?>"><?php echo
+                                                                $sub["subName"]?></label>
+                                                            </div>
+                                                        </div>
+                                                    <?php endif;?>
+                                                <?php endforeach; ?>
                                             </div>
                                         </div>
                                         <div class="flex flex-col justify-between">
@@ -772,39 +769,15 @@
                                                 </div>
                                             </div>
                                             <div class="form-group flex flex-row my-2">
-                                                <div class="items-center px-2 w-1/5">
-                                                    <label for="productOffers" class="text-lg">
-                                                        Offers:
-                                                    </label>
-                                                </div>
-                                                <div>
-                                                    <select name="productOffers" id="productOffers" class="p-2">
-                                                        <option value="none">None</option>
-                                                        <option value="new">New</option>
-                                                        <option value="sale">Sale</option>
-                                                        <option value="discounted">Discounted</option>
-                                                        <option value="hot">Hot</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group flex flex-row my-2">
                                                 <div class="items-center px-2  w-1/5">
-                                                    <label for="productDiscount" class="text-lg">
-                                                        Discount:
+                                                    <label for="productQuantity" class="text-lg">
+                                                        Quantity:
                                                     </label>
                                                 </div>
                                                 <div>
-                                                    <input type="number" name="productDiscount" class="w-96 p-2 rounded border focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Product Discount" required>
-                                                </div>
-                                            </div>
-                                            <div class="form-group flex flex-row my-2">
-                                                <div class="items-center px-2  w-1/5">
-                                                    <label for="productRating" class="text-lg">
-                                                        Rating:
-                                                    </label>
-                                                </div>
-                                                <div>
-                                                    <input type="number" id="productRating" name="productRating" class="w-96 p-2 rounded border focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" min="0" max="5" placeholder="Product Rating" required>
+                                                    <input type="number" name="productQuantity" id="productQuantity" class="w-96 p-2 rounded border
+                                                    focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                                                           placeholder="Product Quantity" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -819,9 +792,21 @@
                                             </div>
                                         </div>
                                         <div class="form-group flex justify-center">
-                                            <button type="button" name="addProductBtn" class="p-2 w-full mx-2 bg-red-600 text-white rounded
-                                            text-xl">
-                                                Add Product
+                                            <button class="w-1/2 rounded p-2 text-xl bg-red-700 text-white addProdBtn inline-flex
+                                    justify-center" type="button">
+                                                <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white hidden prod-load-spinner text-center
+                                        justify-center"
+                                                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"
+                                                            style="--darkreader-inline-stroke: currentColor;"
+                                                            data-darkreader-inline-stroke=""></circle>
+                                                    <path class="opacity-75" fill="currentColor"
+                                                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                                                          style="--darkreader-inline-fill: currentColor;" data-darkreader-inline-fill=""></path>
+                                                </svg>
+                                                <span class="prod-btn-text">
+                                            Add Product
+                                        </span>
                                             </button>
                                         </div>
                                     </div>

@@ -147,6 +147,62 @@ $(document).ready(function () {
             }
         });
     }
+    if($(".add-form")){
+        $(".addProdBtn").click(function (){
+            $(".prod-load-spinner").show();
+            $(".prod-btn-text").hide();
+            if (!($("#productName").val()==="") && !($("#productDescription").val()==="") && !($("#productPrice").val()==="")) {
+                //showAlert($(".cat-success-alert"));
+                $(".prod-load-spinner").hide();
+                $(".prod-btn-text").show();
+                addProduct(".prod-error-alert",
+                    ".prod-success-alert",
+                    ".prod-load-spinner",
+                    ".prod-btn-text",
+                    "#productName",
+                    "#productImage",
+                    ".productSub",
+                    "#productPrice",
+                    "#productQuantity",
+                    "#productDescription");
+            } else {
+                $(".prod-load-spinner").hide();
+                $(".prod-error-alert").innerHTML = "Please fill in all the values";
+                $(".prod-btn-text").show();
+                //showAlert($(".cat-error-alert"));
+            }
+        });
+    }
+    function addProduct(errorAlert,successAlert, spinner, text, productName, productImage, productSub, productPrice,productQuantity, productDescription) {
+        console.log(new FormData(document.querySelector("#addProductForm")))
+        /*$.ajax({
+            type: 'post',
+            url: 'addProduct/',
+            data: {
+                type: "addProduct",
+                productName: $(productName).val(),
+                productSub: $(productSub).val(),
+                productPrice: $(productPrice).val(),
+                productQuantity: $(productQuantity).val(),
+                productImage: $(productImage),
+                productDescription: $(productDescription).val()
+            },
+            success: function (xhr) {
+                $(spinner).hide();
+                $(text).show();
+                var message = (xhr);
+                console.log(message);
+                showAlert($(successAlert));
+            },
+            error: function (xhr) {
+                $(spinner).hide();
+                $(text).show();
+                showAlert($(errorAlert));
+                const message = (JSON.parse(xhr.responseText))["message"];
+                console.log(message);
+            }
+        });*/
+    }
     if($(".admin-tool")){
         const adminTools = document.querySelectorAll(".admin-tool");
         const adminContent = document.querySelectorAll(".content-area");

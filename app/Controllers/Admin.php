@@ -111,6 +111,42 @@ class Admin extends BaseController
         }
     }
 
+    public function addProduct(){
+        //productName, productCat, productSub, productPrice, productOffer, productDiscount, productRating, productDescription
+        $type = $this->request->getPost("addProduct");
+
+        if($type == "addProduct") {
+            $productName = $this->request->getPost("productName");
+            $productSub = $this->request->getPost("productSub");
+            $productPrice = $this->request->getPost("productPrice");
+            $productDescription = $this->request->getPost("productDescription");
+            $productQuantity = $this->request->getPost("productQuantity");
+            $productImage = $this->request->getFile("productQuantity");
+
+            echo $productImage->getName();
+            if ($productImage->isValid() && ! $productImage->hasMoved()) {
+                $productImage->move(base_url("/uploads/productImages"), $productName);
+            }
+
+            $data = [
+                "prodName" => $productName,
+                "subId" => $productSub,
+                "prodImage" => $productImage->getName(),
+                "unitPrice" => $productPrice,
+                "availableQuantity" => $productQuantity,
+                "prodDescription"=> $productDescription,
+                "userId"=>1
+            ];
+
+            $query = $this->productModel->insert($data);
+            if (!$query) {
+                echo "Failed";
+            } else {
+                echo "Success";
+            }
+        }
+
+    }
     public function Logout(){
         session()->destroy();
         return redirect()->to("/admin");
